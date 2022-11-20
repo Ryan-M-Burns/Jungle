@@ -3,5 +3,7 @@ class Admin::DashboardController < ApplicationController
   :password  => ENV["HTTP_BASIC_PASSWORD"]
   
   def show
+    @products = Product.all.order(created_at: :desc)
+    @categories = Category.all.order(created_at: :desc)
   end
 end
