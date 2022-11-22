@@ -8,6 +8,8 @@ RSpec.describe User, type: :model do
       email: "the_rock@caliban.com",
       password_digest: "for the lion!"
     )
+
+    @user.errors.full_messages
   end
 
   it 'is valid with valid attributes' do
@@ -33,5 +35,5 @@ RSpec.describe User, type: :model do
     @user.password_digest = nil
     expect(@user).to_not be_valid
   end
-
+ 
 end
