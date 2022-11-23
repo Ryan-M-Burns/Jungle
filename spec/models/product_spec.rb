@@ -1,17 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  
   before(:each) do
     @category = Category.new
-    
     @product = Product.new( 
       name: "The Lion's Sword",
       price: 100,
       quantity: 1,
       category: @category
     )
-    
   end
  # include multiple testing methods for future reference
  # test happy path for full Product instead of testing happy path for each attribute
@@ -21,7 +18,6 @@ RSpec.describe Product, type: :model do
     expect(@product).to be_valid
     expect(@product.errors.full_messages.any?).to be false
   end
-
   # include multiple testing methods for future reference
   describe ".name" do
     it 'is not valid without a name' do
@@ -33,8 +29,6 @@ RSpec.describe Product, type: :model do
       expect(@product.errors.full_messages[0]).to include ("can't be blank")
       expect(@product.errors.full_messages.any?).to be true
     end
-
-
   end
 
   describe ".price" do
@@ -70,6 +64,7 @@ RSpec.describe Product, type: :model do
       expect(@product.errors.full_messages).to include ("Quantity is not a number")
     end
   end
+
   describe ".category" do
     it 'is not valid without a category' do
       @product.category = nil
