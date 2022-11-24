@@ -1,6 +1,6 @@
 /// <reference types = "cypress" />
 
-describe('example to-do app', () => {
+describe('Jungle Homepage Test', () => {
   beforeEach(() => {
     cy.visit('/');
   });
